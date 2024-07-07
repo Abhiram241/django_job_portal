@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Details</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-Z4pnb9sWxJBo8xZGu4Z8qVcRg5ckK0QOvLzPv8eGdqRMUKbA32zRFGPjG0Z2nUC5SgUM0Z3whIh8c1Dl7/BOfw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/user_details.css' %}">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'listings' %}" class="logo-link">TalentSphere</a>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'user_details' %}" class="nav-item">Profile</a>
+            <a href="{% url 'about' %}" class="nav-item">About</a>
+            <a href="{% url 'logout' %}" class="nav-item contact-btn">Log out</a>
+        </div>
+    </nav>
+    </header>
+    <div class="content">
+      <div class="profile-card">
+        <div class="edit-icon">
+          <a href="/edit_user_details"><i class="fas fa-edit"></i></a>
+        </div>
+        <div class="header">
+          <div class="profile-pic-container">
+            <img
+              src="{{ user_details.photo.url }}"
+              alt="User Photo"
+              class="profile-pic"
+            />
+          </div>
+          <h2>{{ user_details.full_name }}</h2>
+          <p class="username">@{{user_details.user}}</p>
+        </div>
+        <div class="user-details">
+          <p class="logged-in-name">{{ user_details.called_as }}</p>
+          <p>{{ user_details.self_des }}</p>
+          <p><strong>Email:</strong> {{ user_details.email }}</p>
+          <p><strong>Address:</strong> {{ user_details.address }}</p>
+          <p><strong>Skills:</strong></p>
+          <div class="skills-container">
+            {% for skill in user_details.get_skills_list %}
+            <span class="skill-bubble">{{ skill }}</span>
+            {% endfor %}
+          </div>
+          <div class="resume-download">
+            <a href="{{ user_details.resume.url }}" download class="resume-btn">
+              Download Resume
+            </a>
+          </div>
+          <div class="social-links">
+            <a href="{% url 'user_update' user_details.id %}">Edit Profile</a>
+            <a href="{{ user_details.linkedin_page }}" target="_blank"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

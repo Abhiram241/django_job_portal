@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit User Details</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-Z4pnb9sWxJBo8xZGu4Z8qVcRg5ckK0QOvLzPv8eGdqRMUKbA32zRFGPjG0Z2nUC5SgUM0Z3whIh8c1Dl7/BOfw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/user_details_edit.css' %}" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'listings' %}" class="logo-link">TalentSphere</a>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'user_details' %}" class="nav-item">Profile</a>
+            <a href="{% url 'about' %}" class="nav-item">About</a>
+            <a href="{% url 'logout' %}" class="nav-item contact-btn">Log out</a>
+        </div>
+    </nav>
+    </header>
+
+    <h2>Edit User Details</h2>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <!-- Render user field as hidden input -->
+      <input type="hidden" name="user" value="{{ object.user.id }}" />
+
+      <label for="full_name">Full Name</label><br />
+      {{ form.full_name }}<br />
+
+      <label for="called_as">Your Profession</label><br />
+      {{ form.called_as }}<br />
+
+      <!-- Display other editable fields -->
+      <label for="self_des">Your Description</label><br />
+      {{ form.self_des }}<br />
+
+      <label for="email">{{ form.email.label }}</label><br />
+      {{ form.email }}<br />
+
+      <label for="address">{{ form.address.label }}</label><br />
+      {{ form.address }}<br />
+
+      <label for="skills">{{ form.skills.label }}</label><br />
+      {{ form.skills }}<br />
+
+      <label for="photo">{{ form.photo.label }}</label><br />
+      {{ form.photo }}<br />
+
+      <label for="linkedin">Linkedin</label><br />
+      {{ form.linkedin_page }}<br />
+
+      <div class="submit-container">
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </body>
+</html>

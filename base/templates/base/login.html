@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>Welcome to <span style="color: #6a5acd">TalentSphere</span></h1>
+      <form method="POST" id="login-form">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+          {% if form.errors.username %}
+          <div class="error-message">{{ form.errors.username }}</div>
+          {% endif %}
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+          {% if form.errors.password %}
+          <div class="error-message">{{ form.errors.password }}</div>
+          {% endif %}
+        </div>
+        {% if form.non_field_errors %}
+        <div class="error-message" id="non-field-errors">
+          {{ form.non_field_errors }}
+        </div>
+        {% endif %}
+        <p>Click <a href="{% url 'register'%}">here</a> to register</p>
+        <input type="submit" value="Login" />
+      </form>
+    </div>
+    <script>
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", function (event) {
+          const username = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value.trim();
+          const errorMessage = document.getElementById("non-field-errors");
+
+          if (username === "" || password === "") {
+            event.preventDefault(); // Prevent form submission
+            errorMessage.textContent = "Username and password are required.";
+            errorMessage.style.display = "block";
+          }
+        });
+
+      window.onload = function () {
+        const errorMessage = document.getElementById("non-field-errors");
+        if (errorMessage.textContent.trim() !== "") {
+          errorMessage.style.display = "block";
+        }
+      };
+    </script>
+  </body>
+</html>

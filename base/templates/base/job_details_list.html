@@ -1,0 +1,122 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TalentSphere</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/job_details_list.css' %}">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{% url 'listings' %}" class="logo-link">TalentSphere</a>
+            </div>
+            <div class="nav-links">
+                <a href="{% url 'user_details' %}" class="nav-item">Profile</a>
+                <a href="{% url 'about' %}" class="nav-item">About</a>
+                <a href="{% url 'logout' %}" class="nav-item contact-btn">Log out</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h2>
+          {% if user_details.user_type == 'employee' %}
+            Available Jobs
+          {% elif user_details.user_type == 'employer' %}
+            Your Job Postings
+          {% else %}
+            Job Details
+          {% endif %}
+        </h2>
+        <div class="job-list" id="job-list">
+          {% if user_details.user_type == 'employee' %}
+            {% for jb in opening %}
+              <div class="job-card" data-job-id="{{ jb.pk }}">
+                <div class="job-info">
+                  <div class="job-content">
+                    <h3>{{ jb.title }}</h3>
+                    <p><strong>Duration:</strong> {{ jb.duration }}</p>
+                    <p><strong>Company:</strong> {{ jb.company }}</p>
+                    <p><strong>Location:</strong> {{ jb.location }}</p>
+                  </div>
+                  <div class="button-container">
+                    <a href="{% url 'listings-details' jb.pk %}" class="btn">View Details</a>
+                  </div>
+                </div>
+              </div>
+            {% empty %}
+              <p>No job listings available.</p>
+            {% endfor %}
+            
+          {% elif user_details.user_type == 'employer' %}
+            {% for job in employer_jobs %}
+              <div class="job-card" data-job-id="{{ job.pk }}">
+                <div class="job-info">
+                  <div class="job-content">
+                    <h3>{{ job.title }}</h3>
+                    <p><strong>Duration:</strong> {{ job.duration }}</p>
+                    <p><strong>Company:</strong> {{ job.company }}</p>
+                    <p><strong>Location:</strong> {{ job.location }}</p>
+                  </div>
+                  <div class="button-container">
+                    <a href="{% url 'listings-details' job.pk %}" class="btn">View Details</a>
+                    <button class="delete-btn" onclick="deleteJob({{ job.pk }})">Delete</button>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            
+            <!-- Add new job card for employer -->
+            <div class="job-card add-job-card">
+              <div class="job-info">
+                <b><p>Is there a new opening?</p></b>
+                <a href="{% url 'create_job'%}" class="btn">Create Post</a>
+              </div>
+            </div>
+            
+          {% else %}
+            <p>You are not authorized to view this content.</p>
+          {% endif %}
+        </div>
+      </main>
+    <script>
+        function deleteJob(jobId) {
+            if (confirm('Are you sure you want to delete this job post?')) {
+              fetch(`/delete_job/${jobId}/`, {
+                method: 'POST',
+                headers: {
+                  'X-Requested-With': 'XMLHttpRequest',
+                  'X-CSRFToken': '{{ csrf_token }}',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 'job_id': jobId }),
+              })
+              .then(response => {
+                if (response.ok) {
+                  // Remove the job card from the DOM
+                  document.querySelector(`.job-card[data-job-id="${jobId}"]`).remove();
+                } else {
+                  return response.json().then(data => {
+                    alert(data.message || 'Failed to delete job post.');
+                  });
+                }
+              })
+              .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred.');
+              });
+            }
+          }
+    </script>
+  </body>
+</html>

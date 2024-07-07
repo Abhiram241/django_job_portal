@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Details - TalentSphere</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #121212; /* Dark background color for the body */
+        color: #e0e0e0; /* Light text color for the body */
+      }
+
+      header {
+        background-color: #1f1f1f; /* Dark background color for the header */
+        color: white; /* White text color for the header */
+        padding: 1rem;
+        text-align: center;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-item {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .nav-item:hover {
+        background-color: #333;
+      }
+
+      .contact-btn {
+        background-color: #1e90ff; /* Blue background color for the contact button */
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+      }
+
+      .contact-btn:hover {
+        background-color: #1c86ee; /* Darker blue on hover for the contact button */
+      }
+
+      .job-details {
+        background-color: #1f1f1f; /* Dark background color for job details */
+        padding: 2rem;
+        border: 1px solid #333;
+        border-radius: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        width: 80%; /* Adjust width percentage as needed */
+        max-width: 800px; /* Limit maximum width for larger screens */
+        margin: 2rem auto; /* Center align the job details box and add top margin */
+        color: #b0b0b0; /* Lighter text color for paragraphs */
+      }
+
+      .job-details h2 {
+        margin-bottom: 1rem;
+        color: #e0e0e0; /* Light text color for headings */
+        text-align: center; /* Center align the heading */
+      }
+
+      .job-details p {
+        margin-bottom: 1rem;
+      }
+
+      .job-details strong {
+        color: #e0e0e0; /* Light text color for strong text */
+      }
+
+      .cont {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+
+      #apply-btn {
+        display: block;
+        padding: 0.8rem 1.3rem;
+        background-color: #6a5acd; /* Purple background color for apply button */
+        color: white;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.1s ease;
+      }
+
+      #apply-btn:hover {
+        background-color: #836fff; /* Darker purple on hover for apply button */
+        transform: scale(1.05);
+      }
+
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        padding: 0.8rem 1.3rem;
+        border-radius: 15px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.1s ease;
+      }
+
+      .view-applicants-btn {
+        background-color: #683257; /* Light blue */
+        color: white;
+      }
+
+      .view-applicants-btn:hover {
+        background-color: #42213d; /* Darker blue on hover */
+        transform: scale(1.05);
+      }
+
+        .logo-link {
+            color: white; /* Ensure the text color is white */
+            text-decoration: none; /* Remove underline */
+            font-size: 1.5rem; /* Ensure the font size matches */
+            font-weight: 600; /* Ensure the font weight matches */
+        }
+        
+        .logo-link:hover {
+            color: #ccc; /* Optional: Change color on hover */
+            cursor: pointer; /* Show pointer cursor on hover */
+        }
+        
+    
+
+      /* Bubble styling */
+      .bubble {
+        display: inline-block;
+        background-color: #653357; /* Default bubble color */
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Employee-specific bubble color */
+      {% if user_details.user_type == 'employee' %}
+      .bubble {
+        background-color: #6e59cb; /* Blue bubble color for employee */
+      }
+      {% endif %}
+      
+      /* Toast (message) styling */
+      .messages {
+        position: fixed;
+        top: 5rem; /* Adjust to position below the header */
+        left: 1rem; /* Adjust to position on the left */
+        z-index: 1000;
+      }
+
+      .message {
+        background-color: #274C77; /* Green background color for success message */
+        color: white;
+        padding: 1rem;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+        width: 300px;
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .message.error {
+        background-color: #f44336; /* Red background color for error message */
+      }
+
+      .message.warning {
+        background-color: #ff9800; /* Orange background color for warning message */
+      }
+
+      .message.info {
+        background-color: #2196f3; /* Blue background color for info message */
+      }
+
+      .message.dismissable {
+        cursor: pointer;
+      }
+
+      .message.dismissable:hover {
+        transform: translateY(-5px);
+      }
+
+      .message .close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        font-size: 0.8rem;
+        cursor: pointer;
+      }
+    </style>
+</head>
+<body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'listings' %}" class="logo-link">TalentSphere</a>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'user_details' %}" class="nav-item">Profile</a>
+            <a href="{% url 'about' %}" class="nav-item">About</a>
+            <a href="{% url 'logout' %}" class="nav-item contact-btn">Log out</a>
+        </div>
+    </nav>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div id="message-{{ forloop.counter }}" class="message {{ message.tags }}">
+                {{ message }}
+                <span class="close" onclick="dismissMessage({{ forloop.counter }})">&times;</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </header>
+    <main>
+        <div class="job-details">
+            <h2>{{ opening.title }}</h2>
+            <p><strong>Type:</strong> {{ opening.get_job_type_display }}</p>
+            <p><strong>Duration:</strong> {{ opening.duration }}</p>
+            <p><strong>Salary:</strong> {{ opening.salary }}</p>
+            <p><strong>Company:</strong> {{ opening.company }}</p>
+            <p><strong>Location:</strong> {{ opening.location }}</p>
+            <h3>About The Role</h3>
+            <p>{{ opening.about_the_role }}</p>
+            <h3>Requirements</h3>
+            <div>
+                {% for requirement in requirements_list %}
+                <div class="bubble">{{ requirement }}</div>
+                {% endfor %}
+            </div>
+            <h3>Perks</h3>
+            <div>
+                {% for perk in perks_list %}
+                <div class="bubble">{{ perk }}</div>
+                {% endfor %}
+            </div>
+            <h3>About the Company</h3>
+            <p>{{ opening.about_the_company }}</p>
+            <div class="cont">
+                {% if user_details.user_type == 'employee' %}
+                <!-- Show the "Apply Now" button if the user is an employee -->
+                <form action="{% url 'apply-now' opening.pk %}" method="post">
+                    {% csrf_token %}
+                    <button id="apply-btn" type="submit">Apply Now</button>
+                </form>
+                {% elif user_details.user_type == 'employer' %}
+                <!-- Show the "View Applicants" link if the user is an employer -->
+                <a href="{% url 'view-applicants' opening.pk %}" class="btn view-applicants-btn">View Applicants</a>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+    <script>
+      function dismissMessage(messageId) {
+          var message = document.getElementById('message-' + messageId);
+          message.style.display = 'none';  // Hide the message
+      }
+    </script>
+</body>
+</html>

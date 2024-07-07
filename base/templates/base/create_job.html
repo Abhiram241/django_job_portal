@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Job Posting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/create_job.css' %}">
+    <style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{% url 'listings' %}" class="logo-link">TalentSphere</a>
+            </div>
+            <div class="nav-links">
+                <a href="{% url 'user_details' %}" class="nav-item">Profile</a>
+                <a href="{% url 'about' %}" class="nav-item">About</a>
+                <a href="{% url 'logout' %}" class="nav-item contact-btn">Log out</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h2>Create a New Job Posting</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-field">
+                <label for="id_title">Job Title</label>
+                {{ form.title }}
+            </div>
+            <div class="form-field">
+                <label for="id_description">Description</label>
+                {{ form.description }}
+            </div>
+            <div class="form-field">
+                <label for="id_duration">Duration</label>
+                {{ form.duration }}
+            </div>
+            <div class="form-field">
+                <label for="id_salary">Salary</label>
+                {{ form.salary }}
+            </div>
+            <div class="form-field">
+                <label for="id_location">Location</label>
+                {{ form.location }}
+            </div>
+            <div class="form-field">
+                <label for="id_company">Company</label>
+                {{ form.company }}
+            </div>
+            <div class="form-field">
+                <label for="id_about_the_role">About the Role</label>
+                {{ form.about_the_role }}
+            </div>
+            <div class="form-field">
+                <label for="id_requirements">Requirements</label>
+                {{ form.requirements }}
+            </div>
+            <div class="form-field">
+                <label for="id_perks">Perks</label>
+                {{ form.perks }}
+            </div>
+            <div class="form-field">
+                <label for="id_about_the_company">About the Company</label>
+                {{ form.about_the_company }}
+            </div>
+            <div class="form-field">
+                <label for="id_job_type">Job Type</label>
+                {{ form.job_type }}
+            </div>
+            <button type="submit">Create Job Posting</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Applicants - TalentSphere</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/view_applicants.css' %}">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'listings' %}" class="logo-link">TalentSphere</a>
+        </div>
+        <div class="nav-links">
+            <a href="{% url 'user_details' %}" class="nav-item">Profile</a>
+            <a href="{% url 'about' %}" class="nav-item">About</a>
+            <a href="{% url 'logout' %}" class="nav-item contact-btn">Log out</a>
+        </div>
+    </nav>
+    </header>
+    <main>
+      <div class="applicants-list">
+        <h2>Applicants for {{ job.title }}</h2>
+        <ul>
+          {% for applicant in applicants_list %}
+          <li>
+            {{ applicant }}
+            <div class="btn-group">
+              <a
+                href="{% url 'applicant-details' username=applicant %}"
+                class="btn view-details-btn"
+                >View Details</a
+              >
+
+              <form
+                action="{% url 'delete-applicant' job.pk %}"
+                method="post"
+                style="display: inline"
+              >
+                {% csrf_token %}
+                <input type="hidden" name="applicant" value="{{ applicant }}" />
+                <button type="submit" class="btn delete-btn">Delete</button>
+              </form>
+            </div>
+          </li>
+          {% empty %}
+          <li>No applicants yet.</li>
+          {% endfor %}
+        </ul>
+        <a href="{% url 'listings-details' job.pk %}" class="btn back-btn"
+          >Back to Job Details</a
+        >
+      </div>
+    </main>
+  </body>
+</html>
