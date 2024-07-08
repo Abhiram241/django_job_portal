@@ -1,19 +1,16 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TalentSphere</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
     {% load static %}
 
-    <link rel="stylesheet" href="{% static 'css/job_details_list.css' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <link rel="stylesheet" href="{% static 'css/job_details_list.css' %}">
 </head>
 <body>
     <header>
@@ -28,6 +25,29 @@
             </div>
         </nav>
     </header>
+
+    <!-- Mobile Navbar -->
+    <nav class="mobile-navbar">
+        <a href="{% url 'listings' %}" class="mobile-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="{% url 'user_details' %}" class="mobile-nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+        <a href="{% url 'about' %}" class="mobile-nav-item">
+            <i class="fas fa-info-circle"></i>
+            <span>About</span>
+        </a>
+        <a href="{% url 'logout' %}" class="mobile-nav-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Log out</span>
+        </a>
+    </nav>
+    <div class="heading">
+      <h1>TalentSphere</h1>
+    </div>
     <main>
         <h2>
           {% if user_details.user_type == 'employee' %}
@@ -80,7 +100,7 @@
             <div class="job-card add-job-card">
               <div class="job-info">
                 <b><p>Is there a new opening?</p></b>
-                <a href="{% url 'create_job'%}" class="btn">Create Post</a>
+                <a href="{% url 'create_job'%}" class="btn create_btn">Create Post</a>
               </div>
             </div>
             
@@ -118,5 +138,5 @@
             }
           }
     </script>
-  </body>
+</body>
 </html>

@@ -1,207 +1,273 @@
+/* Resetting default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
 body {
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #121212; /* Dark background color for the body */
-    color: #e0e0e0; /* Light text color for the body */
-  }
-  
-  
-  header {
-    background-color: #1f1f1f; /* Dark background color for the header */
-    color: white; /* White text color for the header */
-    padding: 1rem;
-    text-align: center;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-  }
-  
-  .logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 1.5rem;
-  }
-  
-  .nav-item {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .nav-item:hover {
-    background-color: #333;
-  }
-  
-  .contact-btn {
-    background-color: #1e90ff; /* Blue background color for the contact button */
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-  }
-  
-  .contact-btn:hover {
-    background-color: #1c86ee; /* Darker blue on hover for the contact button */
-  }
-  
-  /* Cards on Home Page */
-  main {
-    padding: 2rem;
-  }
-  
-  h2 {
-    margin: 0;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #e0e0e0;
-  }
-  
-  .job-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center; /* Center job cards */
-    max-width: 1200px; /* Limit width for larger screens */
-    margin: 0 auto; /* Center align on the page */
-  }
-  
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #e0e0e0;
+  min-height: 100vh; /* Ensure body takes up at least full viewport height */
+}
+
+/* Header styles */
+header {
+  background-color: #1f1f1f;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  position: fixed; /* Fix header at the top */
+  width: 100%; /* Ensure header spans full width */
+  z-index: 1000; /* Ensure header is above other content */
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.nav-item:hover {
+  background-color: #333;
+}
+
+.contact-btn {
+  background-color: #1e90ff; /* Blue background color for the contact button */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.contact-btn:hover {
+  background-color: #1c86ee; /* Darker blue on hover for the contact button */
+}
+
+/* Main content styles */
+main {
+  padding: 2rem;
+  padding-top: calc(2rem + 80px); /* Adjust padding to account for fixed header */
+}
+
+h2 {
+  margin: 0;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #e0e0e0;
+}
+
+.job-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center; /* Center job cards */
+  max-width: 1200px; /* Limit width for larger screens */
+  margin: 0 auto; /* Center align on the page */
+  padding-bottom: 4rem; /* Add bottom padding to ensure space for fixed mobile navbar */
+}
+
+.job-card {
+  background-color: #1f1f1f;
+  padding: 1.4rem;
+  border: 1px solid #333;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  margin: 0; /* Remove margin to fix alignment issues */
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  height: 100%; /* Ensure cards have a consistent height */
+  overflow: hidden; /* Handle overflow */
+}
+
+.job-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.job-card h3 {
+  margin: 0 0 0.5rem;
+  color: #e0e0e0;
+}
+
+.job-card p {
+  margin: 0.5rem 0;
+  color: #b0b0b0;
+  flex: 1; /* Allow description to take remaining space */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis for overflowed text */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.job-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to the top */
+  flex: 1; /* Allow content to grow */
+}
+
+.job-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Allow content to take remaining space */
+  overflow: hidden; /* Handle overflow */
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align buttons to the right */
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.btn,
+.delete-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #6a5acd; /* Button background color */
+  color: white;
+}
+
+.btn:hover {
+  background-color: #836fff; /* Button hover color */
+}
+
+.delete-btn {
+  background-color: #ff4d4d; /* Delete button background color */
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #e60000; /* Delete button hover color */
+}
+
+/* Mobile Navbar */
+.mobile-navbar {
+  display: none; /* Initially hidden */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1f1f1f; /* Dark background color */
+  padding: 0.5rem 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-around; /* Evenly space the icons */
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  /* Adjustments for smaller screens */
   .job-card {
-    background-color: #1f1f1f;
-    padding: 1.4rem;
-    border: 1px solid #333;
-    border-radius: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s, box-shadow 0.3s;
+    width: calc(100% - 0.5rem); /* One card per row for mobile devices */
+  }
+
+  /* Mobile Navbar */
+  .navbar {
+    display: none; /* Hide desktop navbar on mobile devices */
+  }
+
+  .mobile-navbar {
+    display: flex; /* Show mobile navbar on mobile devices */
+  }
+
+  .heading {
     display: flex;
-    flex-direction: column;
-    margin: 0; /* Remove margin to fix alignment issues */
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-    height: 100%; /* Ensure cards have a consistent height */
-    overflow: hidden; /* Handle overflow */
+    justify-content: center;
   }
-  
-  .job-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-  }
-  
-  .job-card h3 {
-    margin: 0 0 0.5rem;
-    color: #e0e0e0;
-  }
-  
-  .job-card p {
-    margin: 0.5rem 0;
-    color: #b0b0b0;
-    flex: 1; /* Allow description to take remaining space */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Show ellipsis for overflowed text */
-    white-space: nowrap; /* Prevent text from wrapping */
-  }
-  
-  .job-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Align items to the top */
-    flex: 1; /* Allow content to grow */
-  }
-  
-  .job-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1; /* Allow content to take remaining space */
-    overflow: hidden; /* Handle overflow */
-  }
-  
-  .job-card .btn,
-  .delete-btn {
-    padding: 0.5rem 1rem;
-    border: none;
+
+  h1 {
+    text-align: center;
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #6e59cb;
+    padding: 15px;
     border-radius: 20px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    cursor: pointer;
   }
-  
-  .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Align buttons to the right */
-    gap: 0.5rem; /* Space between buttons */
+  main{
+    padding-top: 20px;
   }
-  
-  .btn,
-  .delete-btn {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    cursor: pointer;
+
+  header {
+    display: none;
   }
-  
-  .btn {
-    background-color: #6a5acd; /* Button background color */
-    color: white;
+
+  .create_btn {
+    margin-left: 20px;
+    width: 100px;
+    text-align: center;
   }
-  
-  .btn:hover {
-    background-color: #836fff; /* Button hover color */
+}
+
+@media (min-width: 769px) {
+  /* Adjustments for larger screens */
+  .job-card {
+    width: calc(50% - 0.5rem); /* Two cards per row for tablets */
   }
-  
-  .delete-btn {
-    background-color: #ff4d4d; /* Delete button background color */
-    color: white;
+
+  .navbar {
+    display: flex; /* Show desktop navbar on screens larger than 768px */
   }
-  
-  .delete-btn:hover {
-    background-color: #e60000; /* Delete button hover color */
+
+  .mobile-navbar {
+    display: none; /* Hide mobile navbar on screens larger than 768px */
   }
-  
-  @media (max-width: 1024px) {
-    .job-card {
-      width: calc(
-        50% - 0.5rem
-      ); /* Adjust width for two cards per row for smaller screens */
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .job-card {
-      width: calc(100% - 0.5rem); /* One card per row for mobile devices */
-    }
-  }
-  
-  @media (min-width: 1200px) {
-    .job-card {
-      width: calc(33.33% - 0.5rem); /* Three cards per row for larger screens */
-    }
-  }
-  
-  
-  .logo-link {
-      color: white; /* Ensure the text color is white */
-      text-decoration: none; /* Remove underline */
-      font-size: 1.5rem; /* Ensure the font size matches */
-      font-weight: 600; /* Ensure the font weight matches */
-  }
-  
-  .logo-link:hover {
-      color: #ccc; /* Optional: Change color on hover */
-      cursor: pointer; /* Show pointer cursor on hover */
-  }
-  
-  
+}
+
+/* Logo link styles */
+.logo-link {
+  color: white; /* Ensure the text color is white */
+  text-decoration: none; /* Remove underline */
+  font-size: 1.5rem; /* Ensure the font size matches */
+  font-weight: 600; /* Ensure the font weight matches */
+}
+
+.logo-link:hover {
+  color: #ccc; /* Optional: Change color on hover */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
