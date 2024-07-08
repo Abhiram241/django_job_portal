@@ -140,19 +140,38 @@ input[type="submit"]:hover {
   text-decoration: underline;
 }
 
-a {
-  visibility: hidden;
-  text-decoration: none;
-}
-
 .logo-link {
-  color: white; /* Ensure the text color is white */
-  text-decoration: none; /* Remove underline */
-  font-size: 1.5rem; /* Ensure the font size matches */
-  font-weight: 600; /* Ensure the font weight matches */
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .logo-link:hover {
-  color: #ccc; /* Optional: Change color on hover */
-  cursor: pointer; /* Show pointer cursor on hover */
+  color: #ccc;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
