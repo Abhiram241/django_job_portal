@@ -1,231 +1,233 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  body {
-    font-family: "Poppins", sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100vh;
-    background-color: #121212;
-    color: #e0e0e0;
-    margin: 0;
-  }
+body {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  background-color: #121212;
+  color: #e0e0e0;
+  margin: 0;
+}
 
-  header {
-    background-color: #1f1f1f;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    width: 100%;
-  }
+header {
+  background-color: #1f1f1f;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  width: 100%;
+}
 
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-    width: 100%;
-  }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  width: 100%;
+}
 
-  .logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 
-  .nav-links {
-    display: flex;
-    gap: 1.5rem;
-  }
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
 
-  .nav-item {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
+.nav-item {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
 
-  .nav-item:hover {
-    background-color: #333;
-  }
+.nav-item:hover {
+  background-color: #333;
+}
 
-  .contact-btn {
-    background-color: #1e90ff;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-  }
+.contact-btn {
+  background-color: #1e90ff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
 
-  .contact-btn:hover {
-    background-color: #1c86ee;
-  }
+.contact-btn:hover {
+  background-color: #1c86ee;
+}
 
-  .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    padding: 20px;
-  }
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 20px;
+}
 
-  .profile-card {
-    width: 100%;
-    max-width: 800px;
-    min-width: 700px;
-    background-color: #1e1e1e;
-    border: 2px solid #6a5acd;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
-    overflow: hidden;
-    text-align: center;
-    position: relative;
-    transition: transform 0.6s;
-    display: flex;
-    flex-direction: row;
-    align-items: center; /* Center vertically */
-  }
+.profile-card {
+  width: 100%;
+  max-width: 800px;
+  min-width: 700px;
+  background-color: #1e1e1e;
+  border: 2px solid #6a5acd;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  transition: transform 0.6s;
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Center vertically */
+}
 
-  .profile-card:hover {
-    transform: translateY(-10px) scale(1.1);
-  }
+.profile-card:hover {
+  transform: translateY(-10px) scale(1.1);
+}
 
-  .edit-icon {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    color: #6a5acd;
-  }
+.edit-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #6a5acd;
+}
 
-  .edit-icon a {
-    color: inherit;
-    text-decoration: none;
-  }
+.edit-icon a {
+  color: inherit;
+  text-decoration: none;
+}
 
-  .header {
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #1e1e1e;
-    padding: 20px 0;
-  }
+.header {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e1e1e;
+  padding: 20px 0;
+}
 
-  .profile-pic-container {
-    width: 150px;
-    height: 150px;
-    border: 5px solid #1e1e1e;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-    background-color: #1e1e1e;
-    margin-right: 20px; /* Margin for spacing */
-  }
+.profile-pic-container {
+  width: 150px;
+  height: 150px;
+  border: 5px solid #1e1e1e;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background-color: #1e1e1e;
+  margin-right: 20px; /* Margin for spacing */
+}
 
-  .profile-pic {
-    width: 100%;
-    height: auto;
-    vertical-align: middle; /* Center vertically */
-  }
+.profile-pic {
+  width: 100%;
+  height: auto;
+  vertical-align: middle; /* Center vertically */
+}
 
-  .user-details {
-    width: 50%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left; /* Align text left */
-  }
+.user-details {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left; /* Align text left */
+}
 
-  .user-details h3 {
-    margin: 10px 0;
-    font-size: 18px;
-    color: #ccc;
-  }
+.user-details h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #ccc;
+}
 
-  .user-details p {
-    margin: 10px 0 0;
-    font-size: 14px;
-    color: #ccc;
-  }
+.user-details p {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #ccc;
+}
 
-  .user-details p strong {
-    color: #6a5acd;
-  }
+.user-details p strong {
+  color: #6a5acd;
+}
 
-  .skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-  }
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
 
-  .skill-bubble {
-    background-color: #6a5acd;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 14px;
-  }
+.skill-bubble {
+  background-color: #6a5acd;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+}
 
-  .social-links {
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
+.social-links {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
 
-  .social-links a {
-    text-decoration: none;
-    color: #6a5acd;
-    font-size: 16px;
-    transition: color 0.3s;
-  }
+.social-links a {
+  text-decoration: none;
+  color: #6a5acd;
+  font-size: 16px;
+  transition: color 0.3s;
+}
 
-  .social-links a:hover {
-    color: #ffffff;
-  }
+.social-links a:hover {
+  color: #ffffff;
+}
 
-  .buttons-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
+.buttons-container {
+  display: flex;
+  justify-content: start;
+  gap: 5px;
+  margin-top: 20px;
+  align-items: center;
+}
 
-  .resume-btn,
-  .email-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #6a5acd;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: background-color 0.3s;
-  }
+.resume-btn,
+.email-btn {
+  display: inline-block;
+  padding: 8px 10px 8px 10px;
+  background-color: #6a5acd;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
 
-  .resume-btn:hover,
-  .email-btn:hover {
-    background-color: #5a4abf;
-  }
+.resume-btn:hover,
+.email-btn:hover {
+  background-color: #5a4abf;
+}
 
-  .logo-link {
-    color: white; /* Ensure the text color is white */
-    text-decoration: none; /* Remove underline */
-    font-size: 1.5rem; /* Ensure the font size matches */
-    font-weight: 600; /* Ensure the font weight matches */
+.logo-link {
+  color: white; /* Ensure the text color is white */
+  text-decoration: none; /* Remove underline */
+  font-size: 1.5rem; /* Ensure the font size matches */
+  font-weight: 600; /* Ensure the font weight matches */
 }
 
 .logo-link:hover {
-    color: #ccc; /* Optional: Change color on hover */
-    cursor: pointer; /* Show pointer cursor on hover */
+  color: #ccc; /* Optional: Change color on hover */
+  cursor: pointer; /* Show pointer cursor on hover */
 }

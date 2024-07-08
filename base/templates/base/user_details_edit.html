@@ -27,14 +27,14 @@
     <header>
       <nav class="navbar">
         <div class="logo">
-            <a href="{% url 'listings' %}" class="logo-link">TalentSphere</a>
+          <a href="{% url 'listings' %}" class="logo-link">TalentSphere</a>
         </div>
         <div class="nav-links">
-            <a href="{% url 'user_details' %}" class="nav-item">Profile</a>
-            <a href="{% url 'about' %}" class="nav-item">About</a>
-            <a href="{% url 'logout' %}" class="nav-item contact-btn">Log out</a>
+          <a href="{% url 'user_details' %}" class="nav-item">Profile</a>
+          <a href="{% url 'about' %}" class="nav-item">About</a>
+          <a href="{% url 'logout' %}" class="nav-item contact-btn">Log out</a>
         </div>
-    </nav>
+      </nav>
     </header>
 
     <h2>Edit User Details</h2>
@@ -63,7 +63,11 @@
       <label for="skills">{{ form.skills.label }}</label><br />
       {{ form.skills }}<br />
 
-      <label for="photo">{{ form.photo.label }}</label><br />
+      <label for="photo" 
+        >
+        {{ form.photo.label }}
+        </label
+      ><br />
       {{ form.photo }}<br />
 
       <label for="linkedin">Linkedin</label><br />

@@ -1,153 +1,158 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
+  font-family: "Poppins", sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
 }
 
 header {
-    background-color: #1f1f1f;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    width: 100%;
+  background-color: #1f1f1f;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  width: 100%;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  width: 100%;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .nav-links {
-    display: flex;
-    gap: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
 }
 
 .nav-item {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 .nav-item:hover {
-    background-color: #333;
+  background-color: #333;
 }
 
 .contact-btn {
-    background-color: #1e90ff;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+  background-color: #1e90ff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
 }
 
 .contact-btn:hover {
-    background-color: #1c86ee;
+  background-color: #1c86ee;
 }
 
 h2 {
-    text-align: center;
-    margin: 2rem 0;
+  text-align: center;
+  margin: 2rem 0;
 }
 
 form {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #1b1c1f;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border: 2px solid #333;
-    font-family: "Montserrat", sans-serif;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #1b1c1f;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 2px solid #333;
+  font-family: "Montserrat", sans-serif;
 }
 
 label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #e0e0e0;
-    font-family: "Montserrat", sans-serif;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #e0e0e0;
+  font-family: "Montserrat", sans-serif;
 }
 
 input[type="text"],
 input[type="email"],
 textarea,
 input[type="file"] {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    background-color: #161519;
-    color: #e0e0e0;
-    border: none;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 1rem;
-    font-family: "Montserrat", sans-serif;
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  background-color: #161519;
+  color: #e0e0e0;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
 }
 
 input[type="submit"] {
-    background-color: #6a5acd;
-    color: white;
-    padding: 0.8rem 1rem;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 1rem;
-    font-family: "Montserrat", sans-serif;
+  background-color: #6a5acd;
+  color: white;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
 }
 
 input[type="submit"]:hover {
-    background-color: #5a4cad;
+  background-color: #5a4cad;
 }
 
 .submit-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .image-path {
-    color: #e0e0e0;
-    text-decoration: none;
-    font-size: 1rem;
-    font-family: "Montserrat", sans-serif;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
 }
 
 .image-path a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 .image-path a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+a {
+  visibility: hidden;
+  text-decoration: none;
 }
 
 .logo-link {
-    color: white; /* Ensure the text color is white */
-    text-decoration: none; /* Remove underline */
-    font-size: 1.5rem; /* Ensure the font size matches */
-    font-weight: 600; /* Ensure the font weight matches */
+  color: white; /* Ensure the text color is white */
+  text-decoration: none; /* Remove underline */
+  font-size: 1.5rem; /* Ensure the font size matches */
+  font-weight: 600; /* Ensure the font weight matches */
 }
 
 .logo-link:hover {
-    color: #ccc; /* Optional: Change color on hover */
-    cursor: pointer; /* Show pointer cursor on hover */
+  color: #ccc; /* Optional: Change color on hover */
+  cursor: pointer; /* Show pointer cursor on hover */
 }
