@@ -8,6 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -137,19 +138,17 @@
         transform: scale(1.05);
       }
 
-        .logo-link {
-            color: white; /* Ensure the text color is white */
-            text-decoration: none; /* Remove underline */
-            font-size: 1.5rem; /* Ensure the font size matches */
-            font-weight: 600; /* Ensure the font weight matches */
-        }
-        
-        .logo-link:hover {
-            color: #ccc; /* Optional: Change color on hover */
-            cursor: pointer; /* Show pointer cursor on hover */
-        }
-        
-    
+      .logo-link {
+        color: white; /* Ensure the text color is white */
+        text-decoration: none; /* Remove underline */
+        font-size: 1.5rem; /* Ensure the font size matches */
+        font-weight: 600; /* Ensure the font weight matches */
+      }
+
+      .logo-link:hover {
+        color: #ccc; /* Optional: Change color on hover */
+        cursor: pointer; /* Show pointer cursor on hover */
+      }
 
       /* Bubble styling */
       .bubble {
@@ -167,7 +166,7 @@
         background-color: #6e59cb; /* Blue bubble color for employee */
       }
       {% endif %}
-      
+
       /* Toast (message) styling */
       .messages {
         position: fixed;
@@ -214,20 +213,76 @@
         font-size: 0.8rem;
         cursor: pointer;
       }
+
+      /* Mobile Navbar */
+      .mobile-navbar {
+        display: none; /* Initially hidden */
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #1f1f1f; /* Dark background color */
+        padding: 0.5rem 0;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        display: flex;
+        justify-content: space-around; /* Evenly space the icons */
+      }
+
+      .mobile-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        /* Show mobile navbar on smaller screens */
+        .mobile-navbar {
+          display: flex;
+        }
+
+        /* Hide desktop navbar on smaller screens */
+        .navbar {
+          display: none;
+        }
+        header{
+          display:none;
+        }
+
+        /* Adjust main content padding for mobile */
+        main {
+          padding-top: 0px; /* Example adjustment */
+          padding-bottom: 80px; /* Ensure space for fixed mobile navbar */
+        }
+
+        /* Additional mobile-specific styles as needed */
+      }
+
+      @media (min-width: 769px) {
+        /* Hide mobile navbar on screens larger than 768px */
+        .mobile-navbar {
+          display: none;
+        }
+      }
     </style>
 </head>
 <body>
     <header>
-      <nav class="navbar">
-        <div class="logo">
-            <a href="{% url 'listings' %}" class="logo-link">TalentSphere</a>
-        </div>
-        <div class="nav-links">
-            <a href="{% url 'user_details' %}" class="nav-item">Profile</a>
-            <a href="{% url 'about' %}" class="nav-item">About</a>
-            <a href="{% url 'logout' %}" class="nav-item contact-btn">Log out</a>
-        </div>
-    </nav>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{% url 'listings' %}" class="logo-link">TalentSphere</a>
+            </div>
+            <div class="nav-links">
+                <a href="{% url 'user_details' %}" class="nav-item">Profile</a>
+                <a href="{% url 'about' %}" class="nav-item">About</a>
+                <a href="{% url 'logout' %}" class="nav-item contact-btn">Log out</a>
+            </div>
+        </nav>
         {% if messages %}
         <div class="messages">
             {% for message in messages %}
@@ -239,6 +294,26 @@
         </div>
         {% endif %}
     </header>
+
+    <nav class="mobile-navbar">
+        <a href="{% url 'listings' %}" class="mobile-nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="{% url 'user_details' %}" class="mobile-nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+        <a href="{% url 'about' %}" class="mobile-nav-item">
+            <i class="fas fa-info-circle"></i>
+            <span>About</span>
+        </a>
+        <a href="{% url 'logout' %}" class="mobile-nav-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Log out</span>
+        </a>
+    </nav>
+
     <main>
         <div class="job-details">
             <h2>{{ opening.title }}</h2>
