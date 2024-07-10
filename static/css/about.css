@@ -56,6 +56,9 @@ header {
     background-color: #1c86ee; /* Darker blue on hover for the contact button */
 }
 
+h1{
+    display: none;
+}
 /* Cards on Home Page */
 main {
     padding: 2rem;
@@ -93,3 +96,72 @@ h2 {
     color: #ccc; /* Optional: Change color on hover */
     cursor: pointer; /* Show pointer cursor on hover */
 }
+
+.mobile-navbar {
+    display: none; /* Initially hidden */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #1f1f1f; /* Dark background color */
+    padding: 0.5rem 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around; /* Evenly space the icons */
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    /* Show mobile navbar on smaller screens */
+    .mobile-navbar {
+        display: flex;
+    }
+    
+    /* Hide desktop navbar on smaller screens */
+    header {
+        display: none;
+    }
+
+    /* Adjust main content padding for mobile */
+    main {
+        padding-top: 20px; /* Example adjustment */
+    }
+
+    h1 {
+        text-align: center;
+        display: inline-block;
+        margin-top: 15px;
+        background-color: #6e59cb;
+        padding: 15px;
+        border-radius: 20px;
+      }
+      .heading {
+        display: flex;
+        justify-content: center;
+      }
+
+    /* Additional mobile-specific styles as needed */
+}
+
+@media (min-width: 769px) {
+    /* Adjustments for larger screens */
+    .navbar {
+        display: flex; /* Show desktop navbar on screens larger than 768px */
+    }
+  
+    .mobile-navbar {
+        display: none; /* Hide mobile navbar on screens larger than 768px */
+    }
+}
+
