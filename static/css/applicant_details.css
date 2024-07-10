@@ -4,13 +4,20 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto; /* Allow scrolling */
+}
+
 body {
   font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; /* Ensure the body stretches to full height */
   background-color: #121212;
   color: #e0e0e0;
   margin: 0;
@@ -189,7 +196,14 @@ header {
   text-decoration: none;
   color: #6a5acd;
   font-size: 16px;
+  display: flex;
+  align-items: center;
   transition: color 0.3s;
+}
+
+.social-links i {
+  margin-right: 5px; /* Space between the icon and label */
+  font-size: 24px; /* Adjust icon size */
 }
 
 .social-links a:hover {
@@ -230,4 +244,160 @@ header {
 .logo-link:hover {
   color: #ccc; /* Optional: Change color on hover */
   cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.container {
+  display: none;
+}
+
+.mobile-navbar {
+  display: none; /* Initially hidden */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1f1f1f; /* Dark background color */
+  padding: 0.5rem 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-around; /* Evenly space the icons */
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  /* Show laptop */
+  .container {
+    display: none;
+  }
+  .mobile-navbar {
+    display: none; /* Hide mobile navbar on screens larger than 768px */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Show mobile */
+  .content {
+    display: none;
+  }
+  
+  header {
+    display: none;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    flex: 1;
+  }
+  .applicant-card {
+    background-color:transparent; /* Dark background color for the card */
+    padding: 3rem;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin: auto; /* Center horizontally */
+  }
+  .details {
+    padding: 15px;
+  }
+  .edit-link {
+    text-align: right;
+  }
+  .edit-link a {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    text-decoration: none;
+  }
+  .card-header {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .pic-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .alias {
+    font-size: 1rem;
+    color: #a0a0a0;
+  }
+  .details h3 {
+    margin-bottom: 0.5rem;
+  }
+  .details p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  .skills-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-flow: row wrap;  }
+  .skill-tag {
+    background-color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+  .links a {
+    color: #0077b5; /* LinkedIn blue color */
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    text-decoration: none;
+  }
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  .resume-link,
+  .email-link {
+    background-color: #6a5acd; /* Blue background color for buttons */
+    color: white;
+    padding: 0.5rem;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  .resume-link:hover,
+  .email-link:hover {
+    background-color: #5a4abf; /* Darker blue on hover for buttons */
+  }
+  /* Show mobile navbar on smaller screens */
+  .mobile-navbar {
+    display: flex;
+  }
+  /* Hide desktop navbar on smaller screens */
+  .navbar {
+    display: none;
+  }
+  /* Adjust main content padding for mobile */
+  main {
+    padding-top: 20px; /* Example adjustment */
+  }
+  
+  /* Additional mobile-specific styles as needed */
 }
