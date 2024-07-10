@@ -154,3 +154,118 @@ body {
     color: #ccc; /* Optional: Change color on hover */
     cursor: pointer; /* Show pointer cursor on hover */
 }
+
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .logo {
+    font-size: 1.3rem; /* Decrease font size for logo on smaller screens */
+  }
+
+  .nav-links {
+    gap: 1rem; /* Decrease gap between nav items */
+  }
+
+  .nav-item {
+    font-size: 0.9rem; /* Decrease font size of nav items */
+  }
+
+  .contact-btn {
+    padding: 0.4rem 0.8rem; /* Adjust padding for contact button */
+    font-size: 0.9rem; /* Decrease font size for contact button */
+  }
+
+  .applicants-list {
+    padding: 1.5rem; /* Adjust padding for applicants list */
+    width: 90%; /* Adjust width for smaller screens */
+    margin: 1.5rem auto; /* Adjust margin for centering */
+  }
+
+  .applicants-list h2 {
+    font-size: 1.2rem; /* Decrease font size of heading */
+  }
+
+  .applicants-list li {
+    padding: 0.6rem; /* Adjust padding for list items */
+    font-size: 0.9rem; /* Decrease font size of list items */
+  }
+
+  .btn-group {
+    right: 0.5rem; /* Adjust right positioning */
+  }
+
+  .btn {
+    padding: 0.4rem 0.8rem; /* Adjust padding for buttons */
+    font-size: 0.7rem; /* Decrease font size of buttons */
+  }
+  .applicants-list{
+    display: none;
+  }
+  .sent{
+    display: flex;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .titlea{
+    text-align: center;
+  }
+
+   /* Show mobile navbar on smaller screens */
+   .mobile-navbar {
+    display: flex;
+}
+
+/* Hide desktop navbar on smaller screens */
+.navbar {
+    display: none;
+}
+header{
+  display: none;
+}
+
+/* Adjust main content padding for mobile */
+main {
+    padding-top: 20px; /* Example adjustment */
+}
+
+/* Additional mobile-specific styles as needed */
+}
+
+@media (min-width: 769px) {
+  .applicant-list-container{
+    display: none;
+
+  }
+
+
+}
+
+/* mobile nav */
+.mobile-navbar {
+  display: none; /* Initially hidden */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1f1f1f; /* Dark background color */
+  padding: 0.5rem 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-around; /* Evenly space the icons */
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+}

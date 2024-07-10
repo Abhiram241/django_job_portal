@@ -10,7 +10,7 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #121212;
+  background: linear-gradient(135deg, #1f1f1f, #000000);
   color: #e0e0e0;
   min-height: 100vh; /* Ensure body takes up at least full viewport height */
 }
@@ -247,7 +247,7 @@ h2 {
 @media (min-width: 769px) {
   /* Adjustments for larger screens */
   .job-card {
-    width: calc(50% - 0.5rem); /* Two cards per row for tablets */
+    width: calc(33.33% - 0.67rem); /* Three cards per row for larger screens */
   }
 
   .navbar {
@@ -271,3 +271,4 @@ h2 {
   color: #ccc; /* Optional: Change color on hover */
   cursor: pointer; /* Show pointer cursor on hover */
 }
+

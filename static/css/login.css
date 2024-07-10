@@ -1,7 +1,7 @@
 /* Global styles */
 body {
     font-family: "Poppins", sans-serif;
-    background-color: #0a0a0a;
+    /* background-color: #0a0a0a; */
     color: #e0e0e0;
     display: flex;
     justify-content: center;
@@ -10,6 +10,7 @@ body {
     margin: 0;
     overflow: hidden; /* Disable scrolling */
 }
+
 
 a {
     list-style: none;
@@ -99,4 +100,11 @@ input[type="submit"]:hover {
         transform: scale(0.9); /* Optional: Scale down container for smaller screens */
         max-width: 90%; /* Adjust max-width for responsiveness */
     }
+}
+
+html {
+    background-image: url('{% static "images/loginwall.jpg" %}');
+    background-size: cover; /* Ensure the background covers the entire page */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+    background-position: center; /* Center the background image */
 }

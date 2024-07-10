@@ -16,6 +16,10 @@ body {
   margin: 0;
 }
 
+h1 {
+  display: none;
+}
+
 /* Navbar styles */
 header {
   background-color: #1f1f1f; /* Dark background color for the header */
@@ -263,7 +267,6 @@ header {
   background-color: #5a4abf;
 }
 
-
 .logo-link {
   color: white; /* Ensure the text color is white */
   text-decoration: none; /* Remove underline */
@@ -274,4 +277,240 @@ header {
 .logo-link:hover {
   color: #ccc; /* Optional: Change color on hover */
   cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.mobile-navbar {
+  display: none; /* Initially hidden */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1f1f1f; /* Dark background color */
+  padding: 0.5rem 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-around; /* Evenly space the icons */
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  body{
+    padding-top: 20px;
+  }
+  .mob-content {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #121212;
+    color: #e0e0e0;
+    padding: 20px;
+    padding-bottom: 50px;
+  }
+
+  .user-card {
+    width: 100%;
+    background-color: #1e1e1e;
+    border: 2px solid #6a5acd;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.6s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .edit-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #6a5acd;
+  }
+
+  .edit-btn a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .avatar-container {
+    width: 150px;
+    height: 150px;
+    border: 5px solid #1e1e1e;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background-color: #1e1e1e;
+    margin-bottom: 20px;
+  }
+
+  .user-avatar {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+  }
+
+  .user-header {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e1e1e;
+    padding: 20px 0;
+  }
+
+  .user-header h2 {
+    margin: 0 0 5px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #6a5acd;
+  }
+
+  .user-header .username {
+    margin: 0;
+    font-size: 16px;
+    color: #888;
+  }
+
+  .details-section {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .details-section .nickname {
+    margin: 0;
+    font-size: 20px;
+    color: #e0e0e0;
+  }
+
+  .details-section p {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  .details-section p strong {
+    color: #6a5acd;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .skill-tag {
+    background-color: #6a5acd;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  .social-profiles {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .social-profiles a {
+    text-decoration: none;
+    color: #6a5acd;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+
+  .social-profiles a:hover {
+    color: #ffffff;
+  }
+
+  .resume-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .resume-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6a5acd;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .resume-link:hover {
+    background-color: #5a4abf;
+  }
+  .content {
+    display: none;
+  }
+  header {
+    display: none;
+  }
+
+  .mobile-navbar {
+    display: flex;
+  }
+
+  /* Hide desktop navbar on smaller screens */
+  .navbar {
+    display: none;
+  }
+
+  /* Adjust main content padding for mobile */
+  main {
+    padding-top: 20px; /* Example adjustment */
+    padding-bottom: 100px; /* Adjust bottom padding for scrolling space */
+    overflow-y: scroll; /* Enable vertical scrolling */
+  }
+  h1 {
+    text-align: center;
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #6e59cb;
+    padding: 15px;
+    border-radius: 20px;
+  }
+  .heading {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Adjustments for larger screens */
+  .navbar {
+    display: flex; /* Show desktop navbar on screens larger than 768px */
+  }
+
+  .mobile-navbar {
+    display: none; /* Hide mobile navbar on screens larger than 768px */
+  }
+  .mob-content {
+    display: none;
+  }
 }

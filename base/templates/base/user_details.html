@@ -15,6 +15,8 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+
     {% load static %}
 
     <link rel="stylesheet" href="{% static 'css/user_details.css' %}">
@@ -32,11 +34,30 @@
         </div>
     </nav>
     </header>
+    <nav class="mobile-navbar">
+      <a href="{% url 'listings' %}" class="mobile-nav-item">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+      </a>
+      <a href="{% url 'user_details' %}" class="mobile-nav-item">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+      </a>
+      <a href="{% url 'about' %}" class="mobile-nav-item">
+          <i class="fas fa-info-circle"></i>
+          <span>About</span>
+      </a>
+      <a href="{% url 'logout' %}" class="mobile-nav-item">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Log out</span>
+      </a>
+  </nav>
+  <div class="heading">
+    <h1>TalentSphere</h1>
+  </div>
     <div class="content">
       <div class="profile-card">
-        <div class="edit-icon">
-          <a href="/edit_user_details"><i class="fas fa-edit"></i></a>
-        </div>
+       
         <div class="header">
           <div class="profile-pic-container">
             <img
@@ -73,5 +94,42 @@
         </div>
       </div>
     </div>
+    <div class="mob-content">
+      <div class="user-card">
+        <div class="user-header">
+          <div class="avatar-container">
+            <img
+              src="{{ user_details.photo.url }}"
+              alt="User Photo"
+              class="user-avatar"
+            />
+          </div>
+          <h2>{{ user_details.full_name }}</h2>
+          <p class="username">@{{user_details.user}}</p>
+        </div>
+        <div class="details-section">
+          <p class="nickname">{{ user_details.called_as }}</p>
+          <p>{{ user_details.self_des }}</p>
+          <p><strong>Email:</strong> {{ user_details.email }}</p>
+          <p><strong>Address:</strong> {{ user_details.address }}</p>
+          <p><strong>Skills:</strong></p>
+          <div class="skills-list">
+            {% for skill in user_details.get_skills_list %}
+            <span class="skill-tag">{{ skill }}</span>
+            {% endfor %}
+          </div>
+          <div class="resume-section">
+            <a href="{{ user_details.resume.url }}" download class="resume-link">
+              Download Resume
+            </a>
+          </div>
+          <div class="social-profiles">
+            <a href="{% url 'user_update' user_details.id %}">Edit Profile</a>
+            <a href="{{ user_details.linkedin_page }}" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </body>
 </html>

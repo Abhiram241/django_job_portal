@@ -136,8 +136,9 @@ h2 {
     /* Adjust main content padding for mobile */
     main {
         padding-top: 20px; /* Example adjustment */
+        padding-bottom: 80px; /* Adjust bottom padding for scrolling space */
+        overflow-y: scroll; /* Enable vertical scrolling */
     }
-
     h1 {
         text-align: center;
         display: inline-block;

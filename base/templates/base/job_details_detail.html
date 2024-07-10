@@ -173,7 +173,11 @@
         top: 5rem; /* Adjust to position below the header */
         left: 1rem; /* Adjust to position on the left */
         z-index: 1000;
-      }
+        width: calc(100% - 2rem); /* Full width minus left and right padding */
+        max-width: 400px; /* Limit maximum width for smaller screens */
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+    
 
       .message {
         background-color: #274C77; /* Green background color for success message */
@@ -362,6 +366,14 @@
           var message = document.getElementById('message-' + messageId);
           message.style.display = 'none';  // Hide the message
       }
-    </script>
+  
+      // Dismiss message on click for mobile
+      document.addEventListener('click', function(event) {
+          if (event.target.classList.contains('message')) {
+              event.target.style.display = 'none';
+          }
+      });
+  </script>
+  
 </body>
 </html>
