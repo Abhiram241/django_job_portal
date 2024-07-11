@@ -18,6 +18,14 @@
     {% load static %}
 
     <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+    <style>
+      html {
+        background-image: url('{% static "images/wallbgm.jpg" %}');
+        background-size: cover; /* Ensure the background covers the entire page */
+        background-repeat: no-repeat; /* Prevent the background from repeating */
+        background-position: center; /* Center the background image */
+    }
+    </style>
   </head>
   <body>
     <div class="form-container">

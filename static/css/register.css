@@ -14,7 +14,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   min-height: 100vh; /* Ensure at least full viewport height */
-  background-color: #121212;
+  /* background-color: #121212; */
   margin: 0;
   color: #e0e0e0;
   overflow-y: auto; /* Enable vertical scrolling */
@@ -25,12 +25,12 @@ body {
 .form-container {
   background-color: #1e1e1e;
   padding: 2rem;
-  border-radius: 15px;
+  border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
   margin-top: 2rem;
   margin-bottom: 2rem; /* Add bottom margin to create space */
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   font-family: "Montserrat", sans-serif;
 }
 
