@@ -187,3 +187,14 @@ button:hover {
         display: none; /* Hide the header on smaller screens */
     }
 }
+
+@media (min-width: 769px) {
+
+    .mobile-navbar{
+      display: none;
+    }
+  
+  
+  }
+  
+  
