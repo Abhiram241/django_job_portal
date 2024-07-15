@@ -244,6 +244,25 @@
         font-size: 0.9rem;
       }
 
+      .applied-btn {
+    background-color: #6a5acd; /* Purple background color */
+    color: white; /* White text color */
+    padding: 0.8rem 1.3rem; /* Same padding as the other buttons */
+    border: none; /* No border */
+    border-radius: 15px; /* Consistent border radius */
+    cursor: not-allowed; /* Not allowed cursor for disabled button */
+    font-size: 1rem; /* Same font size */
+    font-weight: 600; /* Same font weight */
+    text-align: center; /* Center text */
+    transition: background-color 0.3s, transform 0.1s ease; /* Same transitions */
+}
+
+.applied-btn:hover {
+    background-color: #836fff; /* Darker purple on hover */
+    transform: scale(1.05); /* Scale on hover */
+}
+
+
       @media (max-width: 768px) {
         /* Show mobile navbar on smaller screens */
         .mobile-navbar {
@@ -347,17 +366,24 @@
             <h3>About the Company</h3>
             <p>{{ opening.about_the_company }}</p>
             <div class="cont">
-                {% if user_details.user_type == 'employee' %}
-                <!-- Show the "Apply Now" button if the user is an employee -->
-                <form action="{% url 'apply-now' opening.pk %}" method="post">
-                    {% csrf_token %}
-                    <button id="apply-btn" type="submit">Apply Now</button>
-                </form>
-                {% elif user_details.user_type == 'employer' %}
-                <!-- Show the "View Applicants" link if the user is an employer -->
-                <a href="{% url 'view-applicants' opening.pk %}" class="btn view-applicants-btn">View Applicants</a>
-                {% endif %}
-            </div>
+              {% if user_details.user_type == 'employee' %}
+                  {% if user.username in opening.applicants %}
+                      <!-- Show "Applied" button if the user is already an applicant -->
+                      <button id="applied-btn" type="button" class="btn applied-btn" disabled>Applied!</button>
+
+                  {% else %}
+                      <!-- Show the "Apply Now" button if the user is not an applicant -->
+                      <form action="{% url 'apply-now' opening.pk %}" method="post">
+                          {% csrf_token %}
+                          <button id="apply-btn" type="submit">Apply Now</button>
+                      </form>
+                  {% endif %}
+              {% elif user_details.user_type == 'employer' %}
+                  <!-- Show the "View Applicants" link if the user is an employer -->
+                  <a href="{% url 'view-applicants' opening.pk %}" class="btn view-applicants-btn">View Applicants</a>
+              {% endif %}
+          </div>
+          
         </div>
     </main>
 
