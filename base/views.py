@@ -53,6 +53,7 @@ class CustomLogoutView(View):
     def get(self, request):
         logout(request)
         return redirect('login')
+    
 
 class CustomLoginView(LoginView):
     template_name='base/login.html'
