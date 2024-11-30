@@ -24,6 +24,7 @@ opencv-contrib-python==4.10.0.84
 opencv-python==4.10.0.84
 packaging==24.0
 pillow==10.3.0
+PyMySQL==1.1.1
 pyparsing==3.1.2
 pyserial==3.5
 python-dateutil==2.9.0.post0
