@@ -1,14 +1,14 @@
 {
   "builds": [
     {
-      "src": "elevate/wsgi.py",
+      "src": "talentsphere/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "elevate/wsgi.py",
-      "dest": "elevate/wsgi.py"
+      "src": "/(.*)",
+      "dest": "talentsphere/wsgi.py"
     }
   ]
 }
