@@ -1,0 +1,1 @@
+web: gunicorn talentsphere.wsgi --log-file - --log-level debug
