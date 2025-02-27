@@ -1,3 +1,5 @@
+import json
+from django.views import View
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from .models import Job_details, User_Details
@@ -5,12 +7,10 @@ from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.contrib.auth import logout,login
-from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView,FormView,CreateView
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm,CreateJobForm
-import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
